@@ -1,0 +1,10 @@
+import axios from 'axios'
+
+export const $axios = axios.create({
+    baseURL: 'http://localhost:5678/',
+    withCredentials: true,
+    headers: {
+        // ['qwertyasdfgzxcvb']: 'eaa2de90-688f-4cbf-99cd-c30f837b3be4'
+        // 'Access-Control-Allow-Origin': 'http://localhost:5678/'
+    }
+})
