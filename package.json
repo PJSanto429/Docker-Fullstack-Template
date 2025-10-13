@@ -1,0 +1,23 @@
+{
+  "name": "docker_fullstack_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "types.js",
+  "scripts": {
+    "dev": "docker compose up -d",
+    "start": "docker compose -f docker-compose.prod.yml up --build -d",
+    "stop": "docker compose stop"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PJSanto429/Docker-Fullstack-Template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/PJSanto429/Docker-Fullstack-Template/issues"
+  },
+  "homepage": "https://github.com/PJSanto429/Docker-Fullstack-Template#readme"
+}

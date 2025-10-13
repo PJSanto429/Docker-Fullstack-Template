@@ -1,0 +1,27 @@
+services:
+  mongo:
+    image: mongo:8.0
+    container_name: docker_template_database
+    ports:
+      - "1919:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  server:
+    build: ./server
+    container_name: docker_template_server
+    ports:
+      - "5678:5000"
+    depends_on:
+      - mongo
+    environment:
+      MONGO_URI: production
+
+  client:
+    build: ./client
+    container_name: docker_template_client
+    ports:
+      - "1234:80"
+
+volumes:
+  mongo-data:
