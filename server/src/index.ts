@@ -34,47 +34,36 @@ app.use(cors({
     credentials: true
 }))
 
-
 app.get('/', async (req: Request, res: Response) => {
     const items = await Thing.find({})
+    console.log('item count ==> ', items.length)
     res.status(200).json({
         message: 'Hello from the server! Here are the items:',
         data: items
     })   
 })
 
-// app.delete('/', async (_req: Request, res: Response) => {
-//     await Thing.deleteMany({})
-//     res.status(200).end()
-// })
-
-// app.post('/', async (req: Request, res: Response) => {
-//     const created = await Thing.create(req.body)
-//     res.status(200).json(created)
-// })
-
-// app.put('/:thingId', async (req: Request, res: Response) => {
-//     const { thingId } = req.params
-
-//     const updated = await Thing.findByIdAndUpdate(
-//         thingId,
-//         {
-//             $set: req.body
-//         },
-//         {
-//             new: true
-//         }
-//     )
-//     if (!updated) {
-//         throw new Error('Thing not found.')
-//     }
-//     res.status(200).json(updated)
-// })
+app.post('/', async (req: Request, res: Response) => {
+    if (!req.body.name) {
+        res.status(400).json({ message: 'Name is required' })
+        return
+    }
+    if (req.body.age && typeof req.body.age !== 'number') {
+        res.status(400).json({ message: 'Age must be a number' })
+        return
+    }
+    console.log("this is the req body", req.body)
+    const created = await Thing.create({
+        name: req.body.name,
+        age: req.body.age
+    })
+    res.status(200).json(created)
+})
 
 const start = async () => {
     try {
         const port = 5000
-        await mongoose.connect('mongodb://mongo:27017/mydb')
+        await mongoose.connect('mongodb://root:examplepassword@mongo:27017/mydb?authSource=admin')
         console.log('Connected to MongoDB')
         app.listen(port, () => console.log('Server listening on port ' +  port +'\n\n\n\n\n\n\n\n'))
     } catch (err) {

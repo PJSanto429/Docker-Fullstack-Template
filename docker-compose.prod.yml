@@ -6,6 +6,9 @@ services:
       - "1919:27017"
     volumes:
       - mongo-data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: examplepassword
 
   server:
     build: ./server
@@ -15,8 +18,7 @@ services:
     depends_on:
       - mongo
     environment:
-      MONGO_URI: production
-
+      MONGO_URI: mongodb://root:examplepassword@docker_template_database:27017/mydb?authSource=admin
   client:
     build: ./client
     container_name: docker_template_client
