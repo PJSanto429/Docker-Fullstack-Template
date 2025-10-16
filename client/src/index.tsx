@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './App'
+// import { ToastContainer } from 'react-toastify'
 
 import './index.css'
 import '@fontsource/roboto/300.css'
@@ -16,5 +17,6 @@ const root = ReactDOM.createRoot(
 root.render(
     <React.StrictMode>
         <App />
+        {/* <ToastContainer /> */}
     </React.StrictMode>
 )

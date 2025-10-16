@@ -1,17 +1,20 @@
 import mongoose from 'mongoose'
 const { Schema, model } = mongoose
 
-export const Thing = model(
-    'Thing',
+export const Note = model(
+    'Note',
     new Schema({
-        name: {
+        author: {
             type: String,
             required: true
         },
-        age: {
-            type: Number,
-            required: true,
-            default: 50
+        title: {
+            type: String,
+            required: true
+        },
+        content: {
+            type: String,
+            required: true
         }
     }, {
         versionKey: false,

@@ -3,10 +3,22 @@ export {}
 
 declare global {
 
-    namespace MyNameSpace {
+    namespace Types {
 
-        interface Test {
-            name: string
+        interface NoteType {
+            author: string
+            title: string
+            content: string
+
+            createdAt: Date
+            updatedAt?: Date
+            _id: string
+        }
+
+        interface CreateNoteType {
+            author: string
+            title: string
+            content: string
         }
 
     }

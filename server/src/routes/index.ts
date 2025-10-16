@@ -1,10 +1,10 @@
 import express from 'express'
 
 // routes
-import thingRoutes from './thingRoutes'
+import noteRoutes from './noteRoutes'
 
 const mainRouter = express()
 
-mainRouter.use(thingRoutes)
+mainRouter.use(noteRoutes)
 
 export default mainRouter
