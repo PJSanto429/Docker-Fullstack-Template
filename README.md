@@ -22,12 +22,12 @@ Make sure you have the following installed:
 docker compose -f docker-compose.prod.yml up --build -d
 ```
 
-### Developement
+### Development
 ```bash
 npm run dev
 ```
 
-### 3. Other Notes
+## 3. Other Notes
 
 - You can update the ports where the client/server/database are running if necessary.  
   **Defaults are shown below:**
