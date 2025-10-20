@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { createNote, getAllNotes } from "./requests/notes"
 import './app.css'
+import { CreateNoteType, NoteType } from "./Types"
 // import { toast } from "react-toastify"
 
 export const App = () => {
@@ -9,9 +10,9 @@ export const App = () => {
 
     const [error, setError] = useState<any>()
 
-    const [allNotes, setAllNotes] = useState<Types.NoteType[]>([])
+    const [allNotes, setAllNotes] = useState<NoteType[]>([])
 
-    const [newNote, setNewNote] = useState<Types.CreateNoteType>({
+    const [newNote, setNewNote] = useState<CreateNoteType>({
         author: '',
         title: '',
         content: ''
