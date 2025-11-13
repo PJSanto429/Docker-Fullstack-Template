@@ -9,6 +9,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    restart: unless-stopped
 
   server:
     build: ./server
@@ -19,6 +20,8 @@ services:
       - mongo
     environment:
       MONGO_URI: ${MONGO_URI}
+    restart: unless-stopped
+
   client:
     build:
       context: ./client
@@ -26,6 +29,7 @@ services:
     container_name: ${CLIENT_CONTAINER_NAME}
     ports:
       - "${CLIENT_PORT}:80"
+    restart: unless-stopped
 
 volumes:
   mongo-data:
