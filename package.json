@@ -7,6 +7,7 @@
     "dev": "docker compose up -d",
     "start": "docker compose -f docker-compose.prod.yml up --build -d",
     "stop": "docker compose stop",
+    "destryo": "docker compose -f docker-compose.prod.yml down -v",
 
     "enterdatabase": "docker exec -it docker_template_database mongosh -u root -p examplepassword --authenticationDatabase admin mydb",
     "serverlogs": "docker logs -f docker_template_server",

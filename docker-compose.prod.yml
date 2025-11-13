@@ -20,7 +20,9 @@ services:
     environment:
       MONGO_URI: ${MONGO_URI}
   client:
-    build: ./client
+    build:
+      context: ./client
+      dockerfile: Dockerfile.prod
     container_name: ${CLIENT_CONTAINER_NAME}
     ports:
       - "${CLIENT_PORT}:80"
