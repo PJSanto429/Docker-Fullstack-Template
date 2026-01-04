@@ -8,10 +8,12 @@ A simple full-stack Docker template for development and production.
 
 ## 🧰 1. Installation
 
-Make sure you have the following installed:
+### Production
+- [Docker Compose](https://docs.docker.com/compose/install/)
 
-- [Docker Compose](https://docs.docker.com/compose/install/)  
-- (Dev only) [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+### Development
+- [Docker Compose](https://docs.docker.com/compose/install/)
+- [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
 ---
 
