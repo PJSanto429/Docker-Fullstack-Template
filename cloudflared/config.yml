@@ -1,0 +1,11 @@
+tunnel: 07749eca-50b0-4989-ada8-e22b0f1681df
+credentials-file: /etc/cloudflared/07749eca-50b0-4989-ada8-e22b0f1681df.json
+
+ingress:
+  - hostname: mysite.mydomain.com
+    service: http://client:80
+
+  - hostname: api.mysite.mydomain.com
+    service: http://server:5000
+
+  - service: http_status:404

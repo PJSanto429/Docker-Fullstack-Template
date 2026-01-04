@@ -2,8 +2,8 @@ services:
   mongo:
     image: mongo:8.0
     container_name: ${MONGO_CONTAINER_NAME}
-    ports:
-      - "${MONGO_PORT}:27017"
+    # ports:
+    #   - "${MONGO_PORT}:27017"
     volumes:
       - mongo-data:/data/db
     environment:
@@ -14,8 +14,8 @@ services:
   server:
     build: ./server
     container_name: ${SERVER_CONTAINER_NAME}
-    ports:
-      - "${SERVER_PORT}:5000"
+    # ports:
+    #   - "${SERVER_PORT}:5000"
     depends_on:
       - mongo
     environment:
@@ -30,6 +30,17 @@ services:
     ports:
       - "${CLIENT_PORT}:80"
     restart: unless-stopped
+  
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel run
+    volumes:
+      - ./cloudflared:/etc/cloudflared
+    restart: unless-stopped
+    depends_on:
+      - client
+      - server
 
 volumes:
   mongo-data:
